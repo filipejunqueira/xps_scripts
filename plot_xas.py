@@ -91,6 +91,8 @@ experiment_id = "si31574-2"
 folder_path = f"/home/{user}/i09/{experiment_id}/"
 
 # INPUT: Detector entry ############################################
+entry_string = "entry1"
+detector_string = "ew4000"
 # This is necessary because the nexus file can have multiple entries
 
 plot_all_flag = True  # if True, all files in the folder will be plotted
@@ -137,7 +139,7 @@ for id in file_list:
     full_path = f"{folder_path}{file_name}"
 
     file = nxload(full_path)
-    data_list, metadata_list = get_nexus_data(file)
+    data_list, metadata_list = get_nexus_data(file,entry_string=entry_string, detector=detector_string)
     plot_xas_data(data_list, metadata_list)
     print(f"I was able to load {file_name}")
 
