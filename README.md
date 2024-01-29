@@ -28,7 +28,6 @@ To use this module, you need to have Python installed on your system along with 
 You can install these dependencies using pip (but you should really be using conda as much as possible):
 ```bash
 pip install nexusformat numpy matplotlib seaborn
-
 ```
 
 ## Usage
@@ -115,17 +114,33 @@ Saves the content of `list` to a file named `files_with_errors.txt` in the speci
 
 ### Setting Inputs
 1. Define the path to the Nexus file:
-   ```python
+```python
    prefix = "i09-"
    session_code = "si31574-3"
    folder_path = f"/home/{user}/i09/{session_code}/"
- ```
+```
 
 2. Specify the detector entry if necessary (normally it should be entry1)
 
 3. Set the plotting flag and file list:
    
-   ```python  
+```python  
    plot_all_flag = True  # Set to False to plot only specified files
    file_list = [254656]  # List of file IDs to plot if plot_all_flag is False
- ```
+```
+
+4. Configure plot stuff (style, fonts etc):
+```python  
+figure_size = (16, 10)
+font_size = 36
+font_size_label = 20
+font_size_text = 16
+marker_size = 30
+edge_width = 0.8
+marker_transparency = 0.15
+save_path = f"/home/{user}/i09/{session_code}/graphs/"
+```
+
+## Runing the script
+
+To run the script simply do python xps_plot.py
