@@ -58,6 +58,8 @@ session_code = "si31574-3"
 folder_path = f"/home/{user}/i09/{session_code}/"
 
 # INPUT: Detector entry ############################################
+entry_string = "entry1"
+detector_string = "ew4000"
 # This is necessary because the nexus file can have multiple entries
 
 plot_all_flag = True  # if True, all files in the folder will be plotted
@@ -106,7 +108,7 @@ for id in file_list:
     full_path = f"{folder_path}{file_name}"
     try:
         file = nxload(full_path)
-        data_list, metadata_list = get_nexus_data(file)
+        data_list, metadata_list = get_nexus_data(file, entry_string=entry_string, detector=detector_string)
         plot_xps_data(data_list, metadata_list)
         print(f"File {file_name} saved")
         #plot_image_data(data_list, metadata_list)
